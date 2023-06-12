@@ -13,10 +13,17 @@
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 <script>
     const root = document.getElementById("root");
+    const Title = <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title</h3>
+
+    const Button = <button style={{backgroundColor: "tomato",}} onClick={() => console.log("i'm clicked")}>Click me</button>
+    /*
     const h3 = React.createElement("h3", 
     {
         onMouseEnter: () => console.log("mouse enter"),
     }, "Hello I'm a span");
+    */
+
+    /*
     const btn = React.createElement("button",
     {
         onClick: () => console.log('im clicked'),
@@ -24,6 +31,7 @@
             backgroundColor : "tomato",
         }
     }, "Click me");
+    */
     const container = React.createElement("div", null, [h3, btn]);
     ReactDOM.render(container, root);
 </script>
