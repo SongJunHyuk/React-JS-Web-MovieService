@@ -14,20 +14,15 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-    function countUp() {
-        counter = counter + 1;
-        render();
-    }
-    function render() {
-        ReactDOM.render(<Container/>, root);
-    }
-    const Container =(
-    <div>
-        <h3>Hello I'm a title</h3>
-        <button>Click me</button>
-    </div>
-    );
+    function App() {
+        const [counter, modifier] = React.useState(0);
+        return (
+        <div>
+            <h3>Total clicks: {data[0]}</h3>
+            <button>Click me</button>
+        </div>
+        );
+    };
     render();
 </script>
 </html>
