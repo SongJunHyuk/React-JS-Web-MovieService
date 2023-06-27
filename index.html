@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>State</title>
 </head>
+
 <body>
     <div id="root"></div>
 </body>
@@ -21,10 +23,10 @@
             setCounter((current) => current + 1);
         }
         return (
-        <div>
-            <h3>Total clicks: {data[0]}</h3>
-            <button>Click me</button>
-        </div>
+            <div>
+                <h3>Total clicks: {data[0]}</h3>
+                <button>Click me</button>
+            </div>
         );
     };
     ReactDom.render(<App />, root);
@@ -34,19 +36,21 @@
         const onChage = (event) => {
             setMinutes(event.target.value);
         }
-        return ( 
+        return (
             <div>
                 <h1 className="hi">Super Converter</h1>
-                <label htmlFor="minutes">Minutes</label>
-                <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChage={onChage}/>
-                <h4>You want to convert {minutes}</h4>
-                <label for="hours">Hours</label>
-                <input id="hours" placeholder="Hours" type="number"/>
+                <div>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChage={onChage} />
+                </div>
+                <div>
+                    <label for="hours">Hours</label>
+                    <input value={minutes} id="hours" placeholder="Hours" type="number" disabled />
+                </div>
+                <button onClick></button>
             </div>
         );
     }
     ReactDom.render(<Clock/>, root);
-
-
 </script>
 </html>
