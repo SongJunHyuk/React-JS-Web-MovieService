@@ -33,9 +33,13 @@
 
     function Clock() {
         const [minutes, setMinutes] = React.useState();
+        const [flipped, setflipped] = React.useState();
+        const [] = React.useState();
         const onChage = (event) => {
             setMinutes(event.target.value);
         }
+        const reset = () => setAmount(0);
+        const onFlip = () => setflipped((current) => !current)
         return (
             <div>
                 <h1 className="hi">Super Converter</h1>
