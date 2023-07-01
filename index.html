@@ -32,27 +32,31 @@
     ReactDom.render(<App />, root);
 
     function Clock() {
-        const [minutes, setMinutes] = React.useState();
-        const [flipped, setflipped] = React.useState();
+        const [amount, setAmount] = React.useState(9);
+        const [flipped, setflipped] = React.useState(false);
         const [] = React.useState();
-        const onChage = (event) => {
-            setMinutes(event.target.value);
+        const onChange = (event) => {
+            setAmount(event.target.value);
         }
         const reset = () => setAmount(0);
-        const onFlip = () => setflipped((current) => !current)
+        const onFlip = () => {
+            reset();
+            setflipped((curremt) => !current)
+        };
         return (
             <div>
-                <h1 className="hi">Super Converter</h1>
+                <h1>Super Converter</h1>
                 <div>
                     <label htmlFor="minutes">Minutes</label>
-                    <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChage={onChage} />
+                    <input value={flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChage={onChage} disabled={flipped}/>
                 </div>
                 <div>
                     <label for="hours">Hours</label>
-                    <input value={minutes} id="hours" placeholder="Hours" type="number" disabled />
+                    <input value={flipped ? amount : Math.round(amount/60)} id="hours" placeholder="Hours" type="number" disabled={!flipped} />
                 </div>
-                <button onClick></button>
+                <button onClick={reset}>Reset</button>
             </div>
+            
         );
     }
     ReactDom.render(<Clock/>, root);
