@@ -33,28 +33,29 @@
 
     function Clock() {
         const [amount, setAmount] = React.useState(9);
-        const [flipped, setflipped] = React.useState(false);
+        const [inverted, setinverted] = React.useState(false);
         const [] = React.useState();
         const onChange = (event) => {
             setAmount(event.target.value);
         }
         const reset = () => setAmount(0);
-        const onFlip = () => {
+        const onInvert = () => {
             reset();
-            setflipped((curremt) => !current)
+            setinverted((curremt) => !current)
         };
         return (
             <div>
                 <h1>Super Converter</h1>
                 <div>
                     <label htmlFor="minutes">Minutes</label>
-                    <input value={flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChage={onChage} disabled={flipped}/>
+                    <input value={inverted ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChage={onChage} disabled={inverted}/>
                 </div>
                 <div>
                     <label for="hours">Hours</label>
-                    <input value={flipped ? amount : Math.round(amount/60)} id="hours" placeholder="Hours" type="number" disabled={!flipped} />
+                    <input value={inverted ? amount : Math.round(amount/60)} id="hours" placeholder="Hours" type="number" disabled={!inverted} />
                 </div>
                 <button onClick={reset}>Reset</button>
+                <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
             </div>
             
         );
