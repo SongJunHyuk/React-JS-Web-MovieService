@@ -28,17 +28,18 @@
                 <button onClick={onClick}>Click me</button>
             </div>
         );
-    };
+    }
 
     const KmToMiles = () => {
         return (<h3>KM 2 M</h3>);
     }
+
     const MinutesToHours = () => {
         const [amount, setAmount] = React.useState(9);
         const [inverted, setinverted] = React.useState(false);
         const onChange = (event) => {
             setAmount(event.target.value);
-        }
+        };
         const reset = () => setAmount(0);
         const onInvert = () => {
             reset();
@@ -48,11 +49,11 @@
             <div>
                 <div>
                     <label htmlFor="minutes">Minutes</label>
-                    <input value={inverted ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={inverted}/>
+                    <input value={inverted ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={inverted} />
                 </div>
                 <div>
                     <label for="hours">Hours</label>
-                    <input value={inverted ? amount : Math.round(amount/60)} id="hours" placeholder="Hours" type="number" disabled={!inverted} />
+                    <input value={inverted ? amount : Math.round(amount / 60)} id="hours" placeholder="Hours" type="number" disabled={!inverted} />
                 </div>
                 <button onClick={reset}>Reset</button>
                 <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
@@ -78,17 +79,19 @@
                 {index === "0" ? <MinutesToHours /> : null}
                 {index === "1" ? <KmToMiles /> : null}
             </div>
-        )
+        );
     }
 
     const Container = () => {
         return (
-        <div>
-            <TotalClicks />
-            <App />
-        </div>
-        )
+            <div>
+                <TotalClicks />
+                <App />
+            </div>
+        );
     }
-    ReactDOM.render(<Container/>, root);
+
+    ReactDOM.render(<Container />, root);
 </script>
+
 </html>
