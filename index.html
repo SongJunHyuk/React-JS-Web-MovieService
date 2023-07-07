@@ -53,7 +53,7 @@
                 </div>
                 <div>
                     <label for="hours">Hours</label>
-                    <input value={inverted ? amount : Math.round(amount / 60)} id="hours" placeholder="Hours" type="number" disabled={!inverted} />
+                    <input value={inverted ? amount : Math.round(amount / 60)} id="hours" placeholder="Hours" type="number" onChange={onChange} disabled={!inverted} />
                 </div>
                 <button onClick={reset}>Reset</button>
                 <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
@@ -82,17 +82,30 @@
         );
     }
 
-    const Btn = ({ banana, big }) => {
-        return <button  style={{backgroundColor: "tomato", color: "white", padding: "10px 20px", border: 0, borderRadius: 10, fontSize: big ? 18 : 16}}>{banana}</button>;
+    const Btn = ({ text, changeValue }) => {
+        return <button onClick={changeValue} style={{backgroundColor: "tomato", color: "white", padding: "10px 20px", border: 0, borderRadius: 10, fontSize:10,}}>{text}</button>;
     }
- 
+
+    const MemorizedBtn = React.memo(Btn);
+
+    const PropContainer = () => {
+        const[value, setValue] = React.useState("Save Changes");
+        const changeValue = () => setValue("Revert Cahnges ");
+        return (
+            <div>
+                <MemorizedBtn text={value} changeValue={changeValue}/>
+                <MemorizedBtn text="Continue"/>
+            </div>
+        );
+
+    }
+
     const Container = () => {
         return (
             <div>
                 <TotalClicks />
                 <StatePractice />
-                <Btn banana="Save Changes" big={true}/>
-                <Btn banana="Continue" big={false}/>
+                <PropContainer />
             </div>
         );
     }
