@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
 import Movie from "../components/Movie";
 
 function Home() {
