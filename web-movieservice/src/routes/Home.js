@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import styles from "./Home.module.css";
 import Detail from "./routes/Detail";
-import Home from "./routes/Home";
+import Home from "./Home";
 import Movie from "../components/Movie";
+import Movie from '../Movie';
 
 function Home() {
   const [loading, setLoading] = useState(true);
