@@ -21,6 +21,7 @@ function Home() {
   useEffect(() => {
     getMovies();
   }, []);
+  
   return (
     <div className={styles.container}>
       {loading ? (
